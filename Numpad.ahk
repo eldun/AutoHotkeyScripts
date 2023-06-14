@@ -18,4 +18,4 @@ LAlt & ,::Send {8}
 
 LAlt & .::Send {9}
 
-LAlt & Space::Send {0}
+LAlt & RAlt::Send {0}
