@@ -11,13 +11,23 @@ tabDown(isHold, taps, state){
         Hotkey, k, sendUp, On
         Hotkey, l, sendRight, On
 
+        Hotkey, n, sendHome, On
+        Hotkey, m, sendPgDn, On
+        Hotkey, SC033, sendPgUp, On
+        Hotkey, ., sendEnd, On
+
     }
     ; Tap or release hold
     if (state != 1) {
-        Hotkey, h, sendleft, Off
-        Hotkey, j, senddown, Off
-        Hotkey, k, sendup, Off
-        Hotkey, l, sendright, Off
+        Hotkey, h, sendLeft, Off
+        Hotkey, j, sendDown, Off
+        Hotkey, k, sendUp, Off
+        Hotkey, l, sendRight, Off
+
+        Hotkey, n, sendHome, Off
+        Hotkey, m, sendPgDn, Off
+        Hotkey, SC033, sendPgUp, Off
+        Hotkey, ., sendEnd, Off
 
         if (state = -1)                 
             Send {Tab %taps%}
@@ -25,18 +35,34 @@ tabDown(isHold, taps, state){
     }
 }
 
-sendleft:
+sendLeft:
     Send, {Left}
     return
-senddown:
+sendDown:
     Send, {Down}
     return
-sendup:
+sendUp:
     Send, {Up}
     return
-sendright:
+sendRight:
     Send, {Right}
     return
+
+
+sendHome:
+    Send, {Home}
+    return
+sendPgDn:
+    Send, {PgDn}
+    return
+sendPgUp:
+    Send, {PgUp}
+    return
+sendEnd:
+    Send, {End}
+    return
+
+
 ; Tab::
 ; 	KeyWait, Tab
 ; 	If (A_PriorKey="Tab")
