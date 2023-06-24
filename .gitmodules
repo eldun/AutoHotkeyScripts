@@ -1,0 +1,3 @@
+[submodule "TapHoldManager"]
+	path = TapHoldManager
+	url = https://github.com/evilC/TapHoldManager
