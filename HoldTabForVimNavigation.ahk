@@ -1,52 +1,51 @@
-﻿; Can't get it to work how I want. Jesus. Don't use this.
-; Shift-tab doesn't work, alt-tab doesn't work. I miss keyd.
+﻿#include TapHoldManager\lib\TapHoldManager.ahk
 
+thm := new TapHoldManager(holdTime := 100)
 
-#If GetKeyState("Tab", "P")
-h::Left
-j::Down
-k::Up
-l::Right
+thm.Add("Tab", Func("tabDown"))
 
-n::Home
-m::PgDn
-,::PgUp
-/::End
-#If
+tabDown(isHold, taps, state){
+    if (isHold) {
+        Hotkey, h, sendLeft, On
+        Hotkey, j, sendDown, On
+        Hotkey, k, sendUp, On
+        Hotkey, l, sendRight, On
 
-*Tab::
-KeyWait, Tab
+    }
+    ; Tap or release hold
+    if (state != 1) {
+        Hotkey, h, sendleft, Off
+        Hotkey, j, senddown, Off
+        Hotkey, k, sendup, Off
+        Hotkey, l, sendright, Off
 
-#If, GetKeyState("Shift", P)
-Send, +{Tab}
-Return
-#If
+        if (state = -1)                 
+            Send {Tab %taps%}
 
-IF A_ThisHotkey = *Tab
-	Send, {Tab}
-Return
+    }
+}
 
-
-
-
-
-
-; *Tab::
-; KeyWait, Tab
-; If A_ThisHotKey = *Tab
-; 	Send, {Tab}
-
+sendleft:
+    Send, {Left}
+    return
+senddown:
+    Send, {Down}
+    return
+sendup:
+    Send, {Up}
+    return
+sendright:
+    Send, {Right}
+    return
+; Tab::
+; 	KeyWait, Tab
+; 	If (A_PriorKey="Tab")
+; 		SetCapsLockState, % GetKeyState("Tab","T") ? "Off" : "On"
 ; Return
-; #If GetKeyState("Tab","P")
-; h::left
-; j::down
-; k::up
-; l::right                                                                            
-; #If
 
-; #If GetKeyState("Tab", "P")                                                      
-; *h::Left            
-; *j::Down    
-; *k::Up                
-; *l::Right
+; #If, GetKeyState("Tab", "P") ;Your CapsLock hotkeys go below
+; h::         Left                                                    
+; j::         Down    
+; k::         Up
+; l::         Right
 ; #If
