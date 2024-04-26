@@ -18,4 +18,5 @@ LAlt & ,::Send {8}
 
 LAlt & .::Send {9}
 
-LAlt & RAlt::Send {0}
+; I'd like to use RAlt here, but it causes issues (it selects menus & stuff) if I type more than one 0
+LAlt & Space::Send {0}
