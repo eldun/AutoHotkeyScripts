@@ -82,3 +82,6 @@ IfEqual,isLShiftDown,D
 else
     Send {0}
 return
+
+
+; TO-DO: Add math symbols like on my planck
