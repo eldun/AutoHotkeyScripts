@@ -1,22 +1,84 @@
-; Can't figure out how to remap capital letters in order to send symbols. O well - maybe I'll find the solution later.
+; This is the best way I could find to use shift and alt together - +LAlt didn't work.
 
-LAlt & u::Send {1}
+LAlt & u::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    Send {!}
+else
+    Send {1}
+return
 
-LAlt & i::Send {2}
+LAlt & i::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    Send {@}
+else
+    Send {2}
+return
 
-LAlt & o::Send {3}
+LAlt & o::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    Send {#}
+else
+    Send {3}
+return
 
-LAlt & j::Send {4}
+LAlt & j::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    Send {$}
+else
+    Send {4}
+return
 
-LAlt & k::Send {5}
+LAlt & k::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    SendRaw `%
+else
+    Send {5}
+return
 
-LAlt & l::Send {6}
+LAlt & l::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    Send {^}
+else
+    Send {6}
+return
 
-LAlt & m::Send {7}
 
-LAlt & ,::Send {8}
+LAlt & m::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    Send {&}
+else
+    Send {7}
+return
 
-LAlt & .::Send {9}
+LAlt & ,::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    Send {*}
+else
+    Send {8}
+return
+
+LAlt & .::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    SendRaw `(
+else
+    Send {9}
+return
+
 
 ; I'd like to use RAlt here, but it causes issues (it selects menus & stuff) if I type more than one 0
-LAlt & Space::Send {0}
+LAlt & Space::
+GetKeyState,isLShiftDown,LShift,P
+IfEqual,isLShiftDown,D
+    SendRaw `)
+else
+    Send {0}
+return
